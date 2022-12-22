@@ -1,10 +1,26 @@
-import { Component } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
+import { Product } from "src/app/services/product-service/product";
+import { ProductService } from "../../services/product-service/product.service";
 
 @Component({
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  selector: 'app-list'
+  selector: 'app-list',
+  //providers: [ ProductService ]
 })
-export class ListComponent {
-  
+export class ListComponent implements OnInit {
+  emptyList = "No se han encontrado elementos!";
+  @Input() data?: Product[];
+  /*
+  data: Product[] = [];
+  constructor(private readonly productService: ProductService) {
+  }
+  ngOnInit(): void {
+    this.data = this.productService.getList();
+  }
+  */
+
+  ngOnInit(): void {
+
+  }
 }

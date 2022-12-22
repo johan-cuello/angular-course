@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -8,7 +8,14 @@ import { Component } from '@angular/core';
 export class SearchComponent {
   searchKeyword: string = "";
 
+  @Output() searchValueChanged: 
+    EventEmitter<string> = new EventEmitter<string>();
+
   search(): void {
-    console.log(this.searchKeyword);
+    this.searchValueChanged.emit(this.searchKeyword);
+  }
+
+  readonlyChanged(args?: boolean): void {
+    console.log(`Readonly changed value ${args}`);
   }
 }

@@ -8,20 +8,27 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ListComponent } from './components/list/list.component';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { ProductService } from './services/product-service/product.service';
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     MenuComponent,
     ListComponent,
-    ButtonComponent
+    ButtonComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  /*
+  providers: [
+    ProductService
+  ],
+  */
   bootstrap: [AppComponent]
 })
 export class AppModule { }

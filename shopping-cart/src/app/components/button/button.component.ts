@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { InvokeFunctionExpr } from '@angular/compiler';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-button',
@@ -6,5 +8,21 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent {
-  @Input() readonly: boolean = false;
+  //Variable Input basica
+  //@Input()readonly: boolean = false;
+
+  private _readonly: boolean = false;
+  
+  @Input() get readonly() {
+    return this._readonly;
+  }
+  set readonly(value: boolean) {
+    if (this._readonly !== value) {
+      this._readonly = value;
+      this.readonlyChanged.emit(this._readonly);
+    }
+  }
+
+  @Output() readonlyChanged: EventEmitter<boolean> = 
+    new EventEmitter<boolean>();
 }

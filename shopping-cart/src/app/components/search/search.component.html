@@ -1,10 +1,18 @@
 <div class="container">
   <form class="row mt-3 g-3">
     <div class="col-auto">
-      <input type="text" [(ngModel)]="searchKeyword" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Enter a keyword">
+      <input type="text" 
+        [(ngModel)]="searchKeyword" 
+        [ngModelOptions]="{standalone: true}" 
+        class="form-control" 
+        placeholder="Enter a keyword">
     </div>
     <div class="col-auto">
-      <app-button [readonly]="!searchKeyword || searchKeyword.length === 0"></app-button>
+      <app-button 
+        (click)="search()" 
+        (readonlyChanged)="readonlyChanged($event)" 
+        [readonly]="!searchKeyword || searchKeyword.length === 0">
+      </app-button>
     </div>
   </form>
 </div>

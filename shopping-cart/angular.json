@@ -33,6 +33,11 @@
               "src/styles.scss"
             ],
             "scripts": [
+              {
+                "input": "node_modules/jquery/dist/jquery.js",
+                "inject": true,
+                "bundleName": "jquery-min"
+              },
               "node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },

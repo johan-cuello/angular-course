@@ -1,17 +1,21 @@
 <div class="container">
-  <app-alert 
-    *ngIf="!data" 
-    [text]="emptyList">
-  </app-alert>
-
-  <table *ngIf="!!data" class="table">
-    <tbody>
-      <tr *ngFor="let item of data; index as i">
-        <th scope="row">{{i+1}}</th>
-        <td>{{item.name}}</td>
-        <td>{{item.description}}</td>
-        <td>{{item.price}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div [ngSwitch]="!data || data.length === 0" > 
+    <div *ngSwitchCase="true">
+      <app-alert 
+        [text]="emptyList">
+      </app-alert>
+    </div>
+    <div *ngSwitchCase="false">
+      <table class="table">
+        <tbody>
+          <tr class="on-item" (click)="selectItemHandler(item)" *ngFor="let item of data; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,19 @@
+<div class="container mt-40" *ngIf="!!product">
+  <h2>Product Details</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{ product.name }}</td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td>{{ product.description }}</td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td>{{ product.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

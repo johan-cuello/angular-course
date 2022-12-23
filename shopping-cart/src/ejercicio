@@ -1,0 +1,8 @@
+crear un componente para mostrar el detalle 
+del producto (product-detail)
+
+Propiedad de entrada del tipo Product 
+van a crear una constante se la van a pasar a la 
+propiedad para previsualizar el componente
+
+El componente va a estar debajo del listado

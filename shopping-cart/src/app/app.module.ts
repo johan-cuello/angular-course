@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from './components/button/button.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { ProductService } from './services/product-service/product.service';
+import { DetailsComponent } from './components/details/details.component';
+import { ProductDetailsViewComponent } from './views/product-details-view/product-details-view.component';
+import { ProductListViewComponent } from './views/product-list-view/product-list-view.component';
+import { NotFoundViewComponent } from './views/not-found-view/not-found-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +21,11 @@ import { ProductService } from './services/product-service/product.service';
     MenuComponent,
     ListComponent,
     ButtonComponent,
-    AlertComponent
+    AlertComponent,
+    DetailsComponent,
+    ProductDetailsViewComponent,
+    ProductListViewComponent,
+    NotFoundViewComponent
   ],
   imports: [
     BrowserModule,

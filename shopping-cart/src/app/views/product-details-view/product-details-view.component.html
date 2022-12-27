@@ -1,5 +1,5 @@
 <div class="container">
-  <div>Pagina detalles</div>
+  <a href="#" (click)="back()">Volver</a>
   <app-details [product]="selectedProduct"></app-details>
-  <h1>{{productId}}</h1>
+  <button class="btn btn-primary" (click)="addToCart()" >Add to Cart</button>
 </div>

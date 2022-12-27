@@ -1,2 +1,19 @@
-<app-menu></app-menu>
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-menu></app-menu>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2" style="background-color: lightblue;">
+      <div>treeview</div>
+    </div>
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-2" style="background-color: lightblue;">Chat</div>
+  </div>
+  <div class="row">
+    <div class="col">footer</div>
+  </div>
+</div>

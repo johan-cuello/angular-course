@@ -14,6 +14,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { ProductDetailsViewComponent } from './views/product-details-view/product-details-view.component';
 import { ProductListViewComponent } from './views/product-list-view/product-list-view.component';
 import { NotFoundViewComponent } from './views/not-found-view/not-found-view.component';
+import { CartViewComponent } from './views/cart-view/cart-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { NotFoundViewComponent } from './views/not-found-view/not-found-view.com
     DetailsComponent,
     ProductDetailsViewComponent,
     ProductListViewComponent,
-    NotFoundViewComponent
+    NotFoundViewComponent,
+    CartViewComponent
   ],
   imports: [
     BrowserModule,

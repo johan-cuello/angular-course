@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/services/product-service/product';
 import { ProductService } from 'src/app/services/product-service/product.service';
 
@@ -11,7 +12,9 @@ export class ProductListViewComponent implements OnInit {
   data?: Product[];
   selectedProduct?: Product;
   
-  constructor(private readonly productService: ProductService) {
+  constructor(
+    private readonly productService: ProductService,
+    private readonly router: Router) {
   }
 
   ngOnInit(): void {
@@ -23,6 +26,6 @@ export class ProductListViewComponent implements OnInit {
   }
 
   selectedProductHandler(item: Product): void {
-    this.selectedProduct = item;
+    this.router.navigate(['/products', item.id]);
   }
 }

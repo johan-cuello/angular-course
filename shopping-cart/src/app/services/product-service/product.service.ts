@@ -14,4 +14,8 @@ export class ProductService {
         return product?.name?.toLowerCase().includes(keyword);
     });
   }
+
+  getItemById(id: string | null) : Product | undefined {
+    return productData.find(item => item.id == id);
+  }
 }

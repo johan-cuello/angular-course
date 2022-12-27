@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Router } from "@angular/router";
 import { Product } from "src/app/services/product-service/product";
 import { ProductService } from "../../services/product-service/product.service";
 
@@ -24,6 +25,7 @@ export class ListComponent implements OnInit {
   */
 
   selectItemHandler(item: Product) {
+
     if(!!item) {
       this.selectedItem.emit(item);
     }

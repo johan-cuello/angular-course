@@ -1,8 +1,16 @@
-crear un componente para mostrar el detalle 
-del producto (product-detail)
+<input _ngcontent-agk-c60="" 
+required="" 
+type="text" 
+id="productName" 
+placeholder="Product Name" 
+class="form-control ng-pristine ng-invalid ng-touched" 
+ng-reflect-required="" ng-reflect-model="">
 
-Propiedad de entrada del tipo Product 
-van a crear una constante se la van a pasar a la 
-propiedad para previsualizar el componente
+<input _ngcontent-qre-c60="" required="" type="text" id="productName" placeholder="Product Name" 
+class="form-control ng-untouched ng-pristine ng-invalid" 
 
-El componente va a estar debajo del listado
+
+ng-reflect-required="" ng-reflect-model="">
+
+<input _ngcontent-lib-c60="" required="" type="text" id="productName" placeholder="Product Name" 
+class="form-control ng-touched ng-dirty ng-valid" ng-reflect-required="" ng-reflect-model="l">

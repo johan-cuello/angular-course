@@ -1,0 +1,22 @@
+<div class="container">
+  <div [ngSwitch]="!products || products.length === 0" > 
+    <div *ngSwitchCase="true">
+      <app-alert 
+        text="No se han encontrado elementos!">
+      </app-alert>
+    </div>
+    <div *ngSwitchCase="false">
+      <table class="table">
+        <tbody>
+          <tr class="on-item"  *ngFor="let item of products; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item["name"]}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price}}</td>
+            <td><button (click)="removeItem(item)" class="btn btn-danger">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

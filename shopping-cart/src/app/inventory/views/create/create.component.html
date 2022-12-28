@@ -1,0 +1,61 @@
+<div class="container">
+  <h2>Product Details</h2>
+  <form #pDetails="ngForm" (ngSubmit)="save()">
+    <div class="mb-3">
+      <label 
+        for="productName" 
+        class="form-label">Name</label>
+      <input 
+        id="productName" 
+        name="productName"
+        #pName="ngModel" 
+        [(ngModel)]="name" 
+        required  type="text" 
+        class="form-control" 
+        placeholder="Product Name">
+      
+      <div 
+        class="alert alert-danger" 
+        [hidden]="pName.valid || pName.pristine">
+        El campo name es requerido
+      </div>
+    </div>
+    <div class="mb-3">
+      <label 
+        for="productDescription" 
+        class="form-label">Details</label>
+      <textarea 
+        name="productDescription"
+        [(ngModel)]="description" 
+        class="form-control" 
+        id="productDescription" 
+        rows="3"></textarea>
+    </div>
+    <div class="mb-3">
+      <label 
+        for="productPrice" 
+        class="form-label">Price</label>
+      <input 
+        name="productPrice"
+        #pPrice="ngModel"  
+        required 
+        [(ngModel)]="price" 
+        type="text" 
+        class="form-control" 
+        id="productPrice" 
+        placeholder="Price">
+      <div class="alert alert-danger" 
+        [hidden]="pPrice.valid || pPrice.pristine">
+        El campo price es requerido
+      </div>
+    </div>
+    <button 
+      type="submit" 
+      [disabled]="pDetails.form.invalid" 
+      class="btn btn-primary">Save</button>
+    <button 
+      type="button" 
+      (click)="pDetails.reset()" 
+      class="btn btn-outline-secondary ml-3">Clear</button>
+  </form>
+</div>

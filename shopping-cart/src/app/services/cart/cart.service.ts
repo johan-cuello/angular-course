@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { Product } from '../product-service/product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartService implements OnDestroy {
 
   constructor() { }
+
   private products: Product[] = [];
 
   addItem(product: Product) {
@@ -33,5 +34,9 @@ export class CartService {
     if (index > -1) { // only splice array when item is found
       this.products.splice(index, 1); // 2nd parameter means remove one item only
     }
+  }
+
+  ngOnDestroy(): void {
+    console.log("Carservice released")
   }
 }

@@ -10,9 +10,9 @@
         <tbody>
           <tr class="on-item" (click)="selectItemHandler(item)" *ngFor="let item of data; index as i">
             <th scope="row">{{i+1}}</th>
-            <td>{{item.name}}</td>
+            <td>{{item.name | prefix: 'P'}}</td>
             <td>{{item.description}}</td>
-            <td>{{item.price}}</td>
+            <td>{{item.price | currency: 'USD'}}</td>
           </tr>
           
           <!--

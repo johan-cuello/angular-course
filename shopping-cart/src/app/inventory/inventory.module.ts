@@ -4,17 +4,20 @@ import { ListComponent } from './views/list/list.component';
 import { DetailsComponent } from './views/details/details.component';
 import { CreateComponent } from './views/create/create.component';
 import { InventoryRoutingModule } from './inventory-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './views/edit/edit.component';
 
 @NgModule({
   declarations: [
     ListComponent,
     DetailsComponent,
-    CreateComponent
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
     InventoryRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ]
 })

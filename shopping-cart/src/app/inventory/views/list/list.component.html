@@ -1,3 +1,25 @@
 <button class="btn btn-primary" routerLink="create">Create</button>
 
-<p>list works!</p>
+<div class="container" *ngIf="data | async as dataRes">
+  <div [ngSwitch]="!dataRes  || dataRes.length === 0" > 
+    <div *ngSwitchCase="true">
+      <!--
+      <app-alert 
+        [text]="emptyList">
+      </app-alert>
+      -->
+    </div>
+    <div *ngSwitchCase="false">
+      <table class="table">
+        <tbody>
+          <tr class="on-item" *ngFor="let item of dataRes; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.name }}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.price | currency: 'USD'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

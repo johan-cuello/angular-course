@@ -6,6 +6,7 @@ import { CreateComponent } from './views/create/create.component';
 import { InventoryRoutingModule } from './inventory-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './views/edit/edit.component';
+import { AppModule } from '../app.module';
 
 @NgModule({
   declarations: [

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductService } from '../../../services/product-service/product.service';
 
 @Component({
   selector: 'app-create',
@@ -9,8 +10,21 @@ export class CreateComponent {
   name: string = "";
   description: string = "";
   price: number = 0;
+  message = "";
+
+  constructor(private readonly productService: ProductService) {
+
+  }
 
   save(): void {
-    console.log(`${this.name} ${this.description}`);
+    this.productService.addItem({
+      name: this.name,
+      description: this.description,
+      price: this.price
+    })
+    .subscribe(result => {
+      this.message = "The product was created!";
+
+    })
   }
 }

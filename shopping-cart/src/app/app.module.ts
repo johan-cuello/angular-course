@@ -34,6 +34,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
+  exports: [
+    ListComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

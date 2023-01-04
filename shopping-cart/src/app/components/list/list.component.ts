@@ -11,7 +11,7 @@ import { ProductService } from "../../services/product-service/product.service";
 })
 export class ListComponent implements OnInit {
   emptyList = "No se han encontrado elementos!";
-  @Input() data?: Product[];
+  @Input() data?: Product[] | null;
   @Output() selectedItem: EventEmitter<Product> 
     = new EventEmitter<Product>();
   

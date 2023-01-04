@@ -1,5 +1,5 @@
 <div class="container">
   <a href="javascript:void(0);" (click)="back()">Volver</a>
-  <app-details [product]="selectedProduct"></app-details>
+  <app-details [product]="selectedProduct | async"></app-details>
   <button class="btn btn-primary" (click)="addToCart()" >Add to Cart</button>
 </div>

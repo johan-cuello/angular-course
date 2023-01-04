@@ -1,5 +1,5 @@
 <app-search (searchValueChanged)="searchValueChanged($event)"></app-search>
-<app-list (selectedItem)="selectedProductHandler($event)" [data]="data"></app-list>
+<app-list (selectedItem)="selectedProductHandler($event)" [data]="data | async"></app-list>
 <!--
 <app-details [product]="selectedProduct"></app-details>
 -->

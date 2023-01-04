@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { filter, Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/services/product-service/product';
 import { ProductService } from 'src/app/services/product-service/product.service';
 
@@ -9,20 +10,19 @@ import { ProductService } from 'src/app/services/product-service/product.service
   styleUrls: ['./product-list-view.component.scss']
 })
 export class ProductListViewComponent implements OnInit {
-  data?: Product[];
+  data?: Observable<Product[]>;
   selectedProduct?: Product;
-  
   constructor(
     private readonly productService: ProductService,
     private readonly router: Router) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.data = this.productService.getList();
   }
 
   searchValueChanged(keyword: string): void {
-    this.data = this.productService.search(keyword);
+    //this.data = this.productService.search(keyword);
   }
 
   selectedProductHandler(item: Product): void {

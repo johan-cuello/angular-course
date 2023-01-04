@@ -14,6 +14,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { ListComponent } from './components/list/list.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PrefixPipe } from './pipes/prefix.pipe';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { PrefixPipe } from './pipes/prefix.pipe';
     SharedModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

@@ -7,5 +7,5 @@ import { Product } from 'src/app/services/product-service/product';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent {
-  @Input() product?: Product | undefined ;
+  @Input() product?: Product | undefined | null;
 }

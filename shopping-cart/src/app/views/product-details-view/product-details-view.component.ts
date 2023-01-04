@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { filter, Observable } from 'rxjs';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { Product } from 'src/app/services/product-service/product';
 import { ProductService } from 'src/app/services/product-service/product.service';
@@ -11,7 +12,7 @@ import { ProductService } from 'src/app/services/product-service/product.service
   styleUrls: ['./product-details-view.component.scss']
 })
 export class ProductDetailsViewComponent implements OnInit {
-  selectedProduct?: Product | undefined;
+  selectedProduct?: Observable<Product | undefined>;
 
   productId: string | null = null;
   constructor(
@@ -31,8 +32,9 @@ export class ProductDetailsViewComponent implements OnInit {
   }
 
   addToCart() {
-    if (!!this.selectedProduct) {
-      this.cartService.addItem(this.selectedProduct);
-    }
+    this.selectedProduct?.pipe(filter(p => !!p))
+      .subscribe(p => {
+        this.cartService.addItem(p as Product);
+      });
   }
 }

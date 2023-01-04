@@ -20,7 +20,7 @@ exports.create = function(req, res) {
     Product.create(new_product, function(err, product) {
       if (err)
       res.send(err);
-      res.json({error:false,message:"Product added successfully!",data:employee});
+      res.json({error:false,message:"Product added successfully!",data:product});
     });
   }
 };

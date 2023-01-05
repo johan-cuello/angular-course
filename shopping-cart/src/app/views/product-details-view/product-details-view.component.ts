@@ -12,7 +12,7 @@ import { ProductService } from 'src/app/services/product-service/product.service
   styleUrls: ['./product-details-view.component.scss']
 })
 export class ProductDetailsViewComponent implements OnInit {
-  selectedProduct?: Observable<Product | undefined>;
+  selectedProduct?: Observable<Product[] | undefined>;
 
   productId: string | null = null;
   constructor(
@@ -34,7 +34,7 @@ export class ProductDetailsViewComponent implements OnInit {
   addToCart() {
     this.selectedProduct?.pipe(filter(p => !!p))
       .subscribe(p => {
-        this.cartService.addItem(p as Product);
+        this.cartService.addItem(p![0] as Product);
       });
   }
 }

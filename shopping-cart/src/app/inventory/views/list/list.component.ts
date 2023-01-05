@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { Product } from '../../../services/product-service/product';
 import { ProductService } from '../../../services/product-service/product.service';
 
@@ -19,4 +19,11 @@ export class ListComponent  implements OnInit {
     this.data = this.productService.getList();
   }
 
+  delete(product: Product) {
+    this.productService.removeItemById(product.id!)
+      .pipe(take(1))
+      .subscribe(() => {
+        this.data = this.productService.getList();
+      });
+  }
 }

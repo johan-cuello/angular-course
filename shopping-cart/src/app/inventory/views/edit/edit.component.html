@@ -10,11 +10,8 @@
       id="productName"
       class="form-control" 
       placeholder="Enter product name"
-      formControlName="productName"
+      formControlName="name"
     >
-    <div>
-      {{editForm.get('productName')?.errors | json}}
-    </div>
     <div 
       class="alert alert-danger" 
       [hidden]="!editForm.get('productName')?.hasError('required')">
@@ -29,7 +26,7 @@
       id="productDescription"
       class="form-control" 
       placeholder="Enter product description"
-      formControlName="productDescription"
+      formControlName="description"
     ></textarea>
   </div>
   <div class="mb-3">
@@ -41,7 +38,7 @@
       id="productPrice"
       class="form-control" 
       placeholder="Enter price"
-      formControlName="productPrice"
+      formControlName="price"
     >
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Save</button>

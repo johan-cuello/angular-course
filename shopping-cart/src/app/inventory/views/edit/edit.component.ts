@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { filter, take } from 'rxjs';
+import { ProductService } from 'src/app/services/product-service/product.service';
 
 @Component({
   selector: 'app-edit',
@@ -8,25 +11,39 @@ import { FormBuilder, FormControl, FormGroup, RequiredValidator, Validators } fr
 })
 export class EditComponent implements OnInit {
   editForm?: FormGroup;
+  productId: string | null = null;
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly route: ActivatedRoute,
+    private readonly productService: ProductService) {
 
   }
   ngOnInit(): void {
-    this.editForm = this.fb.group({
-      productName: ['', Validators.required],
-      productDescription: [''],
-      productPrice: ['', Validators.required],
-      provider: this.fb.group({
-        name: ['']
-      })
-    });
-    this.editForm.get("productName")?.valueChanges.subscribe(args => {
-      console.log(args);
-    });
+    this.productId =  this.route.snapshot.paramMap.get("id") as string;
+    if (!!this.productId) {
+      this.productService
+      .getItemById(this.productId)
+      .pipe(
+        filter(product => !!product),
+        take(1))
+      .subscribe(products => {
+        const product = products![0];
+
+        this.editForm = this.fb.group({
+          id: [product!.id],
+          name: [product?.name, Validators.required],
+          description: [''],
+          price: [product?.price, Validators.required]
+        });
+      });
+    }
+
   }
 
   save(): void {
-    console.log(`${this.editForm?.get("productName")?.value} ${this.editForm?.get("productDescription")?.value}`);
+    this.productService.updateItem(
+      this.productId!, 
+      this.editForm?.value);
   }
 }

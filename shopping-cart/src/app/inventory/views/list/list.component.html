@@ -14,9 +14,10 @@
         <tbody>
           <tr class="on-item" *ngFor="let item of dataRes; index as i">
             <th scope="row">{{i+1}}</th>
-            <td>{{item.name }}</td>
+            <td [routerLink]="['edit', item.id]">{{item.name }}</td>
             <td>{{item.description}}</td>
             <td>{{item.price | currency: 'USD'}}</td>
+            <td><button (click)="delete(item)">Delete</button></td>
           </tr>
         </tbody>
       </table>

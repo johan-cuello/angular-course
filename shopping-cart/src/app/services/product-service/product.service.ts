@@ -24,9 +24,9 @@ export class ProductService {
     });
   }
 
-  getItemById(id: string | null) : Observable<Product | undefined> {
+  getItemById(id: string | null) : Observable<Product[] | undefined> {
     const url = `${this.baseUrl}/${id}`;
-    return this.httpClient.get<Product>(url);
+    return this.httpClient.get<Product[]>(url);
   }
 
   addItem(product: Product) : Observable<Product> {
@@ -36,7 +36,7 @@ export class ProductService {
 
   updateItem(id: string, product: Product) : Observable<Product> {
     const url = `${this.baseUrl}/${id}`;
-    return this.httpClient.put<Product>(url, product);
+    return this.httpClient.put<Product>(url, product, {});
   }
 
   removeItemById(id: string | null) : Observable<void> {
